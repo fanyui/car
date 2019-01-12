@@ -64,6 +64,5 @@ Route::get('/dashboard', 'TransactionController@dashboard')->name('dashboard');
 
 
 
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
