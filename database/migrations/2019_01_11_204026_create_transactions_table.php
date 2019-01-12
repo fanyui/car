@@ -20,7 +20,7 @@ class CreateTransactionsTable extends Migration
             $table->integer('vehicule_id');
             $table->string('amount')->nullable();
             $table->boolean("released")->default(0);
-            $table->enum('status', ['new', 'fixing', 'completed'])->default("new");
+            $table->enum('status', ['new', 'intermediat', 'completed'])->default("new");
             $table->timestamps();
         });
     }
