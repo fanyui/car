@@ -15,6 +15,10 @@ class TransactionController extends Controller
 	}
     public function save(Request $request)
     {
+        $this->validate($request, [
+            'worker_id' => 'required|integer',
+        ]);
+
     	$transaction = new Transaction();
     	$transaction->worker_id = $request->worker_id;
     	$transaction->vehicule_id = $request->vehicule_id;
@@ -23,6 +27,7 @@ class TransactionController extends Controller
     	$transaction->status= "intermediat";
 
     	$transaction->save();
+        return back();
     }
 
     public function update(Request $request, $id)
@@ -45,6 +50,7 @@ class TransactionController extends Controller
 		    'worker_id' => 'required',
 		    'status' => 'required',
 		    'trans_id' => 'required|integer',
+            'amount' => 'required'
 		]);
 
     	$transaction = Transaction::find($request->trans_id);
@@ -56,6 +62,7 @@ class TransactionController extends Controller
     	$transaction->status= $request->status;
 
     	$transaction->save();
+        return back();
 
     }
 

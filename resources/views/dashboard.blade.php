@@ -197,13 +197,13 @@
 
 					    <div class="form-group col-md-2">
 					      <label for="input-owner">Owner</label>
-					      <input type="text" disabled="true" class="form-control{{ $errors->has('worker_id') ? ' is-invalid' : '' }}" id="input-owner">
+					      <input type="text" disabled="true" class="form-control" id="input-owner">
 					    </div>
 
 					    <div class="form-group col-md-3">
 					      <label for="inputState">Worker</label>
 
-					      <select id="inputState" name="worker_id" class="form-control">
+					      <select id="inputState" name="worker_id" class="form-control{{ $errors->has('worker_id') ? ' is-invalid' : '' }}">
 					        <option selected>Choose...</option>
 					         @isset($workers)
 		                        @foreach ($workers as $worker)
@@ -279,7 +279,7 @@
 
 			          <div class="form-group">
 			            <label for="recipient-name" class="col-form-label">Amount:</label>
-			            <input type="text" name="amount" class="form-control" id="recipient-name">
+			            <input type="text" name="amount" class="form-control{{ $errors->has('amount') ? ' is-invalid' : '' }}" id="recipient-name">
 			          </div>
 			          	<button type="submit" class="btn btn-primary">Update</button>
 			        </form>
